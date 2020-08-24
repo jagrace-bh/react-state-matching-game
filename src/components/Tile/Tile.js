@@ -1,13 +1,17 @@
 import React from 'react'
-
 import './Tile.css'
 
-const Tile = () => {
+const Tile = (props) => {
 
-  return (
-    <div className='Tile'>
-    </div>
-  )
+    const dynamicColor = (props.selected || props.matched) ? {backgroundColor: props.color} : null;
+
+    return (
+        <div
+            style={dynamicColor}
+            className='Tile'>
+            {(props.selected || props.matched) ? <props.svg /> : null}
+        </div>
+    )
 }
 
 export default Tile
